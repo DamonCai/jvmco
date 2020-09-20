@@ -1,0 +1,13 @@
+*.iml
+
+.idea/
+*/target/
+target/
+**/.DS_Store
+log.dir_IS_UNDEFINED/
+**/.classpath
+**/.project
+**/.settings/
+**/*.log
+**.iml
+**/*.iml

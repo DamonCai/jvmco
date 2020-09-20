@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <property name="LOG_HOME" value="${LOG_PATH}"/>
+
+    <appender name="PROJECT"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/damon/jvmco.log</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/damon/jvmco.%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+            <maxHistory>15</maxHistory>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                <![CDATA[%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n]]></pattern>
+        </layout>
+    </appender>
+
+
+    <logger name="com.damon.jvmco">
+        <level value="debug"/>
+        <appender-ref ref="PROJECT"/>
+    </logger>
+
+
+    <root>
+        <level value="debug"/>
+        <appender-ref ref="PROJECT"/>
+    </root>
+</configuration>
